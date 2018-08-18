@@ -39,7 +39,6 @@ import com.example.xyzreader.ui.helpers.ImageLoaderHelper;
 import com.example.xyzreader.ui.views.ObservableScrollView;
 import com.example.xyzreader.ui.activities.ArticleDetailActivity;
 import com.example.xyzreader.ui.activities.ArticleListActivity;
-
 /**
  * A fragment representing a single Article detail screen. This fragment is
  * either contained in a {@link ArticleListActivity} in two-pane mode (on
@@ -238,6 +237,7 @@ public class ArticleDetailFragment extends Fragment implements
 
             }
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
+
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
                         @Override
