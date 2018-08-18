@@ -1,4 +1,4 @@
-package com.example.xyzreader.ui;
+package com.example.xyzreader.ui.helpers;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,6 +10,8 @@ import com.android.volley.toolbox.Volley;
 
 public class ImageLoaderHelper {
     private static ImageLoaderHelper sInstance;
+
+    private ImageLoaderHelper(){}
 
     public static ImageLoaderHelper getInstance(Context context) {
         if (sInstance == null) {
