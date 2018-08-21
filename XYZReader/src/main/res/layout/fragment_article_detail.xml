@@ -96,7 +96,6 @@
                     android:paddingBottom="@dimen/detail_body_bottom_margin"
                     android:textColor="@color/primary_text"
                     android:justificationMode="inter_word"
-                    android:textColorLink="@color/theme_accent"
                     android:textSize="@dimen/detail_body_text_size"
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
 
@@ -116,7 +115,6 @@
         android:src="@drawable/ic_share"
         android:elevation="@dimen/fab_elevation"
         android:translationZ="6dp"
-        android:stateListAnimator="@anim/fab_state_list_anim"
-        android:backgroundTint="@color/theme_accent"/>
+        android:stateListAnimator="@anim/fab_state_list_anim" />
 
 </com.example.xyzreader.ui.layouts.DrawInsetsFrameLayout>

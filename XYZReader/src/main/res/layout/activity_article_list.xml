@@ -17,7 +17,7 @@
             android:layout_gravity="bottom"
             android:layout_marginLeft="@dimen/list_toolbar_side_margin"
             android:layout_marginRight="@dimen/list_toolbar_side_margin"
-            app:theme="@style/Theme.Main.Reader">
+            app:theme="@style/Theme.Bacon.Detail">
 
             <ImageView
                 android:layout_width="wrap_content"
