@@ -7,7 +7,8 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/app_bar_layout_height"
+        android:elevation="@dimen/app_bar_elevation"
         android:background="?colorPrimary">
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -17,7 +18,7 @@
             android:background="@color/photo_placeholder"
             app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
             app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginStart="72dp"
+            app:expandedTitleMarginStart="@dimen/collapsing_toolbar_margin"
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:title="Test">
@@ -35,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
                 android:theme="@style/Theme.Main.Reader"
-                app:contentInsetStart="72dp"
+                app:contentInsetStart="@dimen/toolbar_intent_start"
                 android:elevation="4dp"
                 app:layout_collapseMode="pin" />
 
@@ -112,8 +113,9 @@
         android:layout_marginRight="@dimen/fab_margin"
         android:background="@drawable/add_fab_background"
         android:contentDescription="@string/action_share"
-        android:elevation="@dimen/fab_elevation"
         android:src="@drawable/ic_share"
+        android:elevation="@dimen/fab_elevation"
+        android:translationZ="6dp"
         android:stateListAnimator="@anim/fab_state_list_anim"
         android:backgroundTint="@color/theme_accent"/>
 
