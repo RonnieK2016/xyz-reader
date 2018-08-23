@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +29,8 @@ import com.example.xyzreader.data.ItemsContract;
 import com.example.xyzreader.data.UpdaterService;
 import com.example.xyzreader.ui.views.DynamicHeightNetworkImageView;
 import com.example.xyzreader.ui.helpers.ImageLoaderHelper;
+
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,6 +63,8 @@ public class ArticleListActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_article_list);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar_container);
+        mToolbar.setTitle("");
+        setSupportActionBar(mToolbar);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
@@ -95,8 +102,27 @@ public class ArticleListActivity extends AppCompatActivity implements
                 mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
                 updateRefreshingUI();
             }
+
+            if (!isConnectionAvailable(getApplicationContext())) {
+                // Internet Connection is not present
+                Snackbar.make(mSwipeRefreshLayout, R.string.no_internet_connect, Snackbar.LENGTH_LONG)
+                        .show();
+            }
+
         }
     };
+
+    public boolean isConnectionAvailable(Context context) {
+        try {
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo netInfo = cm.getActiveNetworkInfo();
+            return netInfo != null;
+        }
+        catch(Exception e){
+            Log.e(TAG, ExceptionUtils.getStackTrace(e));
+            return false;
+        }
+    }
 
     private void updateRefreshingUI() {
         mSwipeRefreshLayout.setRefreshing(mIsRefreshing);

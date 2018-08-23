@@ -22,4 +22,5 @@
     <color name="theme_primary_dark">#311b92</color>
     <color name="theme_accent">#f44336</color>
     <color name="primary_text">#000000</color>
+    <color name="toolbar_details_text_color">#ffffff</color>
 </resources>
